@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>Task Manager - Full Screen</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Welcome Screen -->
+    <div class="screen active" id="welcomeScreen">
+        <div class="welcome-background">
+            <div class="welcome-content">
+                <div class="app-logo">
+                    <div class="logo-icon">✓</div>
+                    <h1 class="app-title">Task Manager</h1>
+                </div>
+                
+                <p class="welcome-subtitle">
+                    Stay organized and productive with our modern task management system. 
+                    Track progress, set priorities, and never miss a deadline.
+                </p>
+                
+                <div class="welcome-buttons">
+                    <button class="btn btn--primary" id="loginBtn">Login</button>
+                    <button class="btn btn--outline" id="signupBtn">Sign Up</button>
+                    <button class="btn btn--secondary" id="guestBtn">Continue as Guest</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Login Screen -->
+    <div class="screen" id="loginScreen">
+        <div class="auth-background">
+            <div class="auth-container">
+                <button class="back-btn" id="loginBackBtn" aria-label="Go back">←</button>
+                
+                <div class="auth-header">
+                    <h2>Welcome Back</h2>
+                    <p>Sign in to your account to continue</p>
+                </div>
+                
+                <form class="auth-form" id="loginForm">
+                    <div class="form-group">
+                        <label class="form-label" for="loginEmail">Email Address *</label>
+                        <input type="email" id="loginEmail" class="form-control" placeholder="Enter your email" required autocomplete="email">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label" for="loginPassword">Password *</label>
+                        <input type="password" id="loginPassword" class="form-control" placeholder="Enter your password" required autocomplete="current-password">
+                    </div>
+                    
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn--primary btn--full-width" id="loginSubmitBtn">
+                            <span class="btn-text">Sign In</span>
+                            <span class="btn-loading hidden">Signing in...</span>
+                        </button>
+                    </div>
+                    
+                    <div class="auth-footer">
+                        <p>Don't have an account? <button type="button" class="link-btn" id="switchToSignup">Sign up here</button></p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Signup Screen -->
+    <div class="screen" id="signupScreen">
+        <div class="auth-background">
+            <div class="auth-container">
+                <button class="back-btn" id="signupBackBtn" aria-label="Go back">←</button>
+                
+                <div class="auth-header">
+                    <h2>Create Account</h2>
+                    <p>Join us to start managing your tasks efficiently</p>
+                </div>
+                
+                <form class="auth-form" id="signupForm">
+                    <div class="form-group">
+                        <label class="form-label" for="signupName">Full Name *</label>
+                        <input type="text" id="signupName" class="form-control" placeholder="Enter your full name" required autocomplete="name">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label" for="signupEmail">Email Address *</label>
+                        <input type="email" id="signupEmail" class="form-control" placeholder="Enter your email" required autocomplete="email">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label" for="signupPassword">Password *</label>
+                        <input type="password" id="signupPassword" class="form-control" placeholder="Create a password" required autocomplete="new-password">
+                        <div class="password-strength" id="passwordStrength">
+                            <div class="strength-bar">
+                                <div class="strength-fill"></div>
+                            </div>
+                            <span class="strength-text">Password strength</span>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label" for="signupConfirmPassword">Confirm Password *</label>
+                        <input type="password" id="signupConfirmPassword" class="form-control" placeholder="Confirm your password" required autocomplete="new-password">
+                    </div>
+                    
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn--primary btn--full-width" id="signupSubmitBtn">
+                            <span class="btn-text">Create Account</span>
+                            <span class="btn-loading hidden">Creating account...</span>
+                        </button>
+                    </div>
+                    
+                    <div class="auth-footer">
+                        <p>Already have an account? <button type="button" class="link-btn" id="switchToLogin">Sign in here</button></p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Dashboard Screen -->
+    <div class="screen dashboard-screen" id="dashboardScreen">
+        <!-- Header -->
+        <header class="dashboard-header">
+            <div class="header-top">
+                <button class="menu-btn" id="menuBtn" aria-label="Open menu">
+                    <div class="hamburger">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </button>
+                <div class="header-icons">
+                    <button class="header-icon-btn" id="searchBtn" aria-label="Search tasks">🔍</button>
+                    <button class="header-icon-btn" id="profileBtn" aria-label="Profile menu">👤</button>
+                </div>
+            </div>
+            
+            <div class="greeting-section">
+                <h2 class="greeting" id="greeting">Hello User</h2>
+                <p class="task-count" id="taskCount">25 Tasks are pending</p>
+            </div>
+            
+            <div class="search-bar">
+                <input type="text" placeholder="Search Tasks" id="searchInput" autocomplete="off">
+                <button class="search-icon" aria-label="Search">🔍</button>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="dashboard-main scrollable">
+            <!-- Ongoing Projects -->
+            <section class="ongoing-section">
+                <div class="section-header">
+                    <h3>Ongoing Projects</h3>
+                </div>
+                <div class="project-card" id="ongoingProject">
+                    <!-- Project content will be dynamically generated -->
+                </div>
+            </section>
+
+            <!-- Today's Tasks -->
+            <section class="tasks-section">
+                <div class="section-header">
+                    <h3>Today's Task</h3>
+                    <button class="see-all-btn" id="seeAllBtn">See All</button>
+                </div>
+                <div class="tasks-timeline" id="tasksTimeline">
+                    <!-- Tasks will be dynamically generated -->
+                </div>
+            </section>
+        </main>
+
+        <!-- Floating Action Button -->
+        <button class="floating-btn" id="floatingBtn" aria-label="Add new task">
+            <span class="plus-icon">+</span>
+            <span class="btn-text">Add New Task</span>
+        </button>
+    </div>
+
+    <!-- Add Task Modal -->
+    <div class="modal hidden" id="addTaskModal" role="dialog" aria-labelledby="modal-title" aria-modal="true">
+        <div class="modal-backdrop" id="modalBackdrop"></div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modal-title">Add New Task</h3>
+                <button class="modal-close" id="modalClose" aria-label="Close modal">✕</button>
+            </div>
+            <form class="modal-body" id="taskForm">
+                <div class="form-group">
+                    <label class="form-label" for="taskTitle">Task Title *</label>
+                    <input type="text" id="taskTitle" class="form-control" placeholder="Enter task title" required>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label" for="taskCategory">Category</label>
+                    <select id="taskCategory" class="form-control">
+                        <option value="Work">Work</option>
+                        <option value="Personal">Personal</option>
+                        <option value="Meeting">Meeting</option>
+                        <option value="Design">Design</option>
+                        <option value="Development">Development</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label" for="taskPriority">Priority</label>
+                    <select id="taskPriority" class="form-control">
+                        <option value="high">High</option>
+                        <option value="medium" selected>Medium</option>
+                        <option value="low">Low</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label" for="taskTime">Time</label>
+                    <input type="time" id="taskTime" class="form-control">
+                </div>
+                
+                <div class="modal-footer">
+                    <button type="button" class="btn btn--outline" id="cancelBtn">Cancel</button>
+                    <button type="submit" class="btn btn--primary" id="saveBtn">Save Task</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Profile Dropdown -->
+    <div class="dropdown hidden" id="profileDropdown" role="menu">
+        <div class="dropdown-content">
+            <div class="dropdown-item" id="profileItem" role="menuitem" tabindex="0">
+                <span class="dropdown-icon">👤</span>
+                <span>Profile</span>
+            </div>
+            <div class="dropdown-item" id="settingsItem" role="menuitem" tabindex="0">
+                <span class="dropdown-icon">⚙️</span>
+                <span>Settings</span>
+            </div>
+            <div class="dropdown-divider"></div>
+            <div class="dropdown-item" id="logoutItem" role="menuitem" tabindex="0">
+                <span class="dropdown-icon">🚪</span>
+                <span>Logout</span>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
